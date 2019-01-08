@@ -25,8 +25,8 @@ script:
   - git clone --depth=1 https://github.com/openembedded/meta-openembedded.git
   - echo "repositories are cloned"
   - source oe-core/oe-init-build-env
-  - cd conf
-  - ls
+  - cat ../meta-opi/bblayers.frag
+  - cat ./conf/bblayers.conf
   - cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
   - cat ../meta-opi/conf.frag >> ./conf/local.conf
 #  - bitbake core-image-minimal
