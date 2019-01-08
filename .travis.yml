@@ -19,5 +19,13 @@ addons:
     - libsdl1.2-dev 
     - xterm
 script:
-  - echo "packages are set up"
-
+  - mkdir build_dir && cd build_dir
+  - git clone https://github.com/openembedded/openembedded-core.git oe-core
+  - git clone https://github.com/openembedded/bitbake.git oe-core/bitbake
+  - git clone https://github.com/openembedded/meta-openembedded.git
+  - echo "repositories are cloned"
+  - source oe-core/oe-init-build-env
+  - cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
+  - cat ../meta-opi/conf.frag >> ./conf/local.conf
+  - bitbake core-image-minimal
+# echo 'INHERIT += "rm_work"' >> ./conf/local.conf
