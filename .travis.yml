@@ -25,9 +25,10 @@ script:
   - git clone --depth=1 https://github.com/openembedded/meta-openembedded.git
   - echo "repositories are cloned"
   - source oe-core/oe-init-build-env
-  - cat ../meta-opi/bblayers.frag
-  - cat ./conf/bblayers.conf
-  - cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
-  - cat ../meta-opi/conf.frag >> ./conf/local.conf
+  - ls ..
+  - ls ../meta-opi/
+#  - cat ./conf/bblayers.conf
+#  - cat ../bblayers.frag >> ./conf/bblayers.conf
+#  - cat ../conf.frag >> ./conf/local.conf
 #  - bitbake core-image-minimal
 # echo 'INHERIT += "rm_work"' >> ./conf/local.conf
