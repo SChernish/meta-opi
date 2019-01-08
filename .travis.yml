@@ -1,0 +1,23 @@
+language: c++
+compiler: gcc
+# Select Trusty Beta environment, required for testing.
+sudo: required
+dist: trusty
+addons:
+  apt:
+    packages:
+    - gawk 
+    - wget 
+    - git-core 
+    - diffstat 
+    - unzip 
+    - texinfo 
+    - gcc-multilib 
+    - build-essential 
+    - chrpath 
+    - socat 
+    - libsdl1.2-dev 
+    - xterm
+script:
+  - echo "packages are set up"
+
