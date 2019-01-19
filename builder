@@ -2,10 +2,10 @@
   stages {
     stage('Build') {
       steps {
-        echo "Building..."'
-        echo "------------------------------"
- 	echo "-----Cloning source files-----"
-	echo "------------------------------"
+        echo 'Building...'
+        echo '------------------------------'
+ 	echo '-----Cloning source files-----'
+	echo '------------------------------'
 	git clone git://github.com/SChernish/meta-opi.git
 	git clone git://github.com/devel-opi/meta-opi.git
 	git clone git://git.openembedded.org/openembedded-core oe-core
