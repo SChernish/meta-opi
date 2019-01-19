@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
   stages {
     stage('Build') {
       steps {
-        echo 'Building...'
+        echo "Building..."'
         echo "------------------------------"
  	echo "-----Cloning source files-----"
 	echo "------------------------------"
