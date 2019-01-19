@@ -1,12 +1,13 @@
-#!/bin/sh
-  stages {
-    stage('Build') {
-      steps {
-        echo 'Building...'
-        echo '------------------------------'
- 	echo '-----Cloning source files-----'
-	echo '------------------------------'
-	sh "git clone git://github.com/SChernish/meta-opi.git"
-      }
+pipeline {
+    agent { label 'master' }
+    stages {
+        stage('build') {
+            steps {
+                echo "Hello World!"
+                sh "echo Hello from the shell"
+                sh "hostname"
+                sh "uptime"
+            }
+        }
     }
-  }
+}
