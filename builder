@@ -11,9 +11,11 @@ pipeline {
         }
         stage('Getting sources') {
             steps {
-                def context = "/var/www/artifacts"
-                echo "COPY TO DIRECTORY"
-                sh 'cp ' + ${WORKSPACE} + ' ' + context
+                scripts {
+                    def context = "/var/www/artifacts"
+                    echo "COPY TO DIRECTORY"
+                    cp ${WORKSPACE} $context
+                 }
             }
         }
    }
