@@ -1,14 +1,18 @@
 pipeline {
     agent { label 'master' }
     stages {
-        stage('build') {
+        stage('Create Environment') {
             steps {
                 echo "Hello World!"
                 sh "echo Hello from the shell"
                 sh "hostname"
                 sh "uptime"
-                echo "${BUILD_NUMBER}"
             }
         }
+        stage('Getting sources') {
+            steps {
+                echo "${BUILD_NUMBER}"
+            }
+        } 
     }
 }
