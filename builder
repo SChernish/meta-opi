@@ -14,4 +14,5 @@ pipeline {
         sh 'mv ' + file + ' ' + context
         sh 'ls ' + ws
        }
+   }
 }
