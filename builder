@@ -10,15 +10,17 @@ pipeline {
             }
         }
         stage('Getting sources') {
-            copyArtifacts('upstream') {
-                includePatterns()
-                targetDirectory('/vat/www/artifacts')
-                flatten()
-                optional()
-                buildSelector {
-                    latestSuccessful(true)
+            steps {
+                copyArtifacts('upstream') {
+                    includePatterns()
+                    targetDirectory('/vat/www/artifacts')
+                    flatten()
+                    optional()
+                    buildSelector {
+                        latestSuccessful(true)
+                    }
                 }
-            } 
+            }
         }
    }
 }
