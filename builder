@@ -11,15 +11,8 @@ pipeline {
         }
         stage('Getting sources') {
             steps {
-                copyArtifacts('META-OPI') {
-                    includePatterns()
-                    targetDirectory('/vat/www/artifacts')
-                    flatten()
-                    optional()
-                    buildSelector {
-                        latestSuccessful(true)
-                    }
-                }
+                echo "COPY TO DIRECTORY"
+                cp ${WORKSPACE} /var/www/artifacts
             }
         }
    }
