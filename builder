@@ -10,10 +10,13 @@ pipeline {
             }
         }
         stage('Getting sources') {
-            steps {
-                echo "${BUILD_NUMBER}"
-                echo "${WORKSPACE}"
-                cp ${WORKSPACE} /var/www/artifacts
+        copyArtifacts('upstream') {
+            includePatterns()
+            targetDirectory('/vat/www/artifacts')
+            flatten()
+            optional()
+            buildSelector {
+                latestSuccessful(true)
             }
         } 
     }
