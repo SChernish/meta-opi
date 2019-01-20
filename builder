@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Getting sources') {
             steps {
-                copyArtifacts('upstream') {
+                copyArtifacts('META-OPI') {
                     includePatterns()
                     targetDirectory('/vat/www/artifacts')
                     flatten()
