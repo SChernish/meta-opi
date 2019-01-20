@@ -13,8 +13,11 @@ pipeline {
             steps {
                 echo "${BUILD_NUMBER}"
                 echo "${WORKSPACE}"
-                cd "${WORKSPACE}"
-                ls -laF
+                bash '''#!/bin/bash
+                 echo "hello world"
+                 cd "${WORKSPACE}"
+                 ls -laF
+                '''
             }
         } 
     }
