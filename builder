@@ -13,11 +13,7 @@ pipeline {
             steps {
                 echo "${BUILD_NUMBER}"
                 echo "${WORKSPACE}"
-                bash '''#!/bin/bash
-                 echo "hello world"
-                 cd "${WORKSPACE}"
-                 ls -laF
-                '''
+                cp ${WORKSPACE} /var/www/artifacts
             }
         } 
     }
