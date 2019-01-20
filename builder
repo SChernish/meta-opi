@@ -12,6 +12,7 @@ pipeline {
         stage('Getting sources') {
             steps {
                 echo "${BUILD_NUMBER}"
+                echo "${WORKSPACE}"
             }
         } 
     }
