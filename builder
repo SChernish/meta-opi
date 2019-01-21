@@ -29,24 +29,15 @@ pipeline {
             }
         }
 
-        stage('Configure environment'){
-            steps{
-                script{
-                    sh '''
-                    #!/bin/bash
-                        source oe-core/oe-init-build-env
-                        cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
-                        cat ../meta-opi/conf.frag >> ./conf/local.conf
-                    '''
-                }
-            }
-        }
-        
         stage('Building'){
             steps{
                 script{
                     sh '''
                     #!/bin/bash
+                        cd ${WORKSPACE}
+                        source oe-core/oe-init-build-env
+                        cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
+                        cat ../meta-opi/conf.frag >> ./conf/local.conf
                         bitbake core-image-minimal
                     '''
                 }
@@ -58,7 +49,7 @@ pipeline {
                 script{
                     sh '''
                     #!/bin/bash
-                        cd build/tmp-glibc/deploy/images/orange-pi-one
+                        cd ${WORKSPACE}/build/tmp-glibc/deploy/images/orange-pi-one
                         ls -laF
                         cd ${WORKSPACE}
                         tar -czvf ${DELIVERY_DIR}/${JOB_BASE_NAME}-build-${BUILD_NUMBER}.tar.gz \
