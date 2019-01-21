@@ -10,21 +10,21 @@ pipeline {
                 script{
                     sh '''
                         cd ${WORKSPACE}
-                        echo -e "+++++++++++++++++++++++++"
-                        echo -e "+    Clone devel-opi    +"
-                        echo -e "+++++++++++++++++++++++++"
+                        echo  "+++++++++++++++++++++++++"
+                        echo  "+    Clone devel-opi    +"
+                        echo  "+++++++++++++++++++++++++"
                         git clone git://github.com/devel-opi/meta-opi.git
-                        echo -e "+++++++++++++++++++++++++"
-                        echo -e "+    Clone oe-core      +"
-                        echo -e "+++++++++++++++++++++++++"
+                        echo  "+++++++++++++++++++++++++"
+                        echo  "+    Clone oe-core      +"
+                        echo  "+++++++++++++++++++++++++"
                         git clone git://git.openembedded.org/openembedded-core oe-core
-                        echo -e "+++++++++++++++++++++++++"
-                        echo -e "+ Clone oe-core/bitbake +"
-                        echo -e "+++++++++++++++++++++++++"
+                        echo  "+++++++++++++++++++++++++"
+                        echo  "+ Clone oe-core/bitbake +"
+                        echo  "+++++++++++++++++++++++++"
                         git clone git://git.openembedded.org/bitbake oe-core/bitbake
-                        echo -e "+++++++++++++++++++++++++++"
-                        echo -e "+ Clone meta-openembedded +"
-                        echo -e "+++++++++++++++++++++++++++"                       
+                        echo  "+++++++++++++++++++++++++++"
+                        echo  "+ Clone meta-openembedded +"
+                        echo  "+++++++++++++++++++++++++++"                       
                         git clone git://git.openembedded.org/meta-openembedded
                     sh '''
                 }
@@ -35,6 +35,7 @@ pipeline {
             steps{
                 script{
                     sh '''
+                        ll
                         source oe-core/oe-init-build-env
                         cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
                         cat ../meta-opi/conf.frag >> ./conf/local.conf
