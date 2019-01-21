@@ -1,15 +1,17 @@
 pipeline {
     agent { label 'master' }
     environment {
-        SOURCE = WORKSPACE
-        TARGET = "/var/www/artifacts"
+        source ./.env
+        SOURCEDIR = WORKSPACE
+        TARGETDIR = "/var/www/artifacts"
     }
     stages {
         stage('Create Environment'){
             steps{
                 script{
-                    sh 'cp -r ' + ${SOURCE} + ' ' + ${TARGET}
-                    sh 'ls ' + ${TARGET}
+                    source ./.env
+                    sh 'cp -r ' + ${SOURCEDIR} + ' ' + ${TARGETDIR}
+                    sh 'ls ' + ${TARGETDIR}
                 }
             }
         }
