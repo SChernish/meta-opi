@@ -10,6 +10,7 @@ pipeline {
             steps{
                 script{
                     source ./.env
+                    sh 'echo ' + ${SOURCEDIR}
                     sh 'cp -r ' + ${SOURCEDIR} + ' ' + ${TARGETDIR}
                     sh 'ls ' + ${TARGETDIR}
                 }
