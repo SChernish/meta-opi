@@ -7,8 +7,10 @@ pipeline {
 
         stage('Cloning source files'){
             steps{
+                deleteDir()
                 script{
                     sh '''
+                        mkdir ${WORKSPACE}
                         cd ${WORKSPACE}
                         echo  "+++++++++++++++++++++++++"
                         echo  "+    Clone devel-opi    +"
