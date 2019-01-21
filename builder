@@ -10,8 +10,8 @@ pipeline {
                 script{
                     sh '''
                         printenv
-                        cp -r WORKSPACE DELIVERY_DIR
-                        ls DELIVERY_DIR
+                        cp -r ${WORKSPACE} ${DELIVERY_DIR}
+                        ls ${DELIVERY_DIR}
                     sh '''
                 }
             }
