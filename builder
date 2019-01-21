@@ -6,7 +6,7 @@ pipeline {
                 script{
                     def source = "/var/lib/jenkins/workspace/META-OPI"
                     def target = "/var/www/artifacts"
-                    sh 'CP ' + source + ' ' + target
+                    sh 'cp -r ' + source + ' ' + target
                     sh 'ls ' + target
                 }
             }
