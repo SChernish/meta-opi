@@ -1,20 +1,21 @@
 pipeline {
     agent { label 'master' }
     environment{
-        TARGETDIR = '/var/www/artifacts'
+        DELIVERY_DIR = '/var/www/artifacts'
+        ARTIFACT_NAME = 'META-OPI-build-' + env.WORKSPACE + 'tar.gz'
     }
     stages {
         stage('Create Environment'){
             steps{
-                echo env.WORKSPACE
-                echo env.TARGETDIR
                 script{
-                    sh 'printenv'
-                    sh 'echo ' + WORKSPACE
-                    sh 'cp -r ' + WORKSPACE + ' ' + TARGETDIR
-                    sh 'ls ' + TARGETDIR
+                    sh '''
+                        printenv
+                        cp -r WORKSPACE DELIVERY_DIR
+                        ls DELIVERY_DIR
+                    sh '''
                 }
             }
         }
     }
 }
+
