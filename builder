@@ -38,6 +38,8 @@ pipeline {
                         source oe-core/oe-init-build-env
                         cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
                         cat ../meta-opi/conf.frag >> ./conf/local.conf
+                        git config --global user.email "gituser@builder.mdcexpert.com"
+                        git config --global user.name "GitUser"
                         bitbake core-image-minimal
                     '''
                 }
