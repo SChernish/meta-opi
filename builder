@@ -1,13 +1,15 @@
 pipeline {
     agent { label 'master' }
+    environment {
+        SOURCE = $WORKSPACE
+        TARGET = "/var/www/artifacts"
+    }
     stages {
         stage('Create Environment'){
             steps{
                 script{
-                    def source = "/var/lib/jenkins/workspace/META-OPI"
-                    def target = "/var/www/artifacts"
-                    sh 'cp -r ' + source + ' ' + target
-                    sh 'ls ' + target
+                    sh 'cp -r ' + ${SOURCE} + ' ' + ${TARGET}
+                    sh 'ls ' + ${TARGET}
                 }
             }
         }
