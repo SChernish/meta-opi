@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'master' }
     environment {
-        SOURCE = $WORKSPACE
+        SOURCE = ${WORKSPACE}
         TARGET = "/var/www/artifacts"
     }
     stages {
