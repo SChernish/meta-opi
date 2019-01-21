@@ -2,8 +2,8 @@ pipeline {
     agent { label 'master' }
     environment {
         source ./.env
-        SOURCEDIR = $WORKSPACE
-        TARGETDIR = "/var/www/artifacts"
+        SOURCEDIR=$WORKSPACE
+        TARGETDIR='/var/www/artifacts'
     }
     stages {
         stage('Create Environment'){
