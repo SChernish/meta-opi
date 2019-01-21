@@ -41,14 +41,35 @@ pipeline {
                 }
             }
         }
+        
+        stage('Building'){
+            steps{
+                script{
+                    sh '''
+                    #!/bin/bash
+                        bitbake core-image-minimal
+                    '''
+                }
+            }
+        }
 
         stage('Delivery build'){
             steps{
                 script{
                     sh '''
                     #!/bin/bash
+                        cd build/tmp-glibc/deploy/images/orange-pi-one
+                        ls -laF
                         cd ${WORKSPACE}
-                        tar -czvf ${DELIVERY_DIR}/${JOB_BASE_NAME}-build-${BUILD_NUMBER}.tar.gz -C ${WORKSPACE} ${WORKSPACE} --exclude '${WORKSPACE}/*.git'
+                        tar -czvf ${DELIVERY_DIR}/${JOB_BASE_NAME}-build-${BUILD_NUMBER}.tar.gz \
+                        -C ${WORKSPACE} ${WORKSPACE} \
+                        --exclude '${WORKSPACE}/.git' \
+                        --exclude '${WORKSPACE}/oe-core/bitbake/.git' \
+                        --exclude '${WORKSPACE}/oe-core/.git' \
+                        --exclude '${WORKSPACE}/meta-openembedded/.git' \
+                        --exclude '${WORKSPACE}/meta-opi/.git' \
+                        --exclude '${WORKSPACE}/.travis.yml'
+                        --exclude '${WORKSPACE}/builder'
                     '''
                 }
                 deleteDir()
