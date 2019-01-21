@@ -61,7 +61,7 @@ pipeline {
                         --exclude '${WORKSPACE}/oe-core/.git' \
                         --exclude '${WORKSPACE}/meta-openembedded/.git' \
                         --exclude '${WORKSPACE}/meta-opi/.git' \
-                        --exclude '${WORKSPACE}/.travis.yml'
+                        --exclude '${WORKSPACE}/.travis.yml' \
                         --exclude '${WORKSPACE}/builder'
                     '''
                 }
