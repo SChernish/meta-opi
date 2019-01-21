@@ -1,12 +1,10 @@
 pipeline {
     agent { label 'master' }
-    environment {
-        source ./.env
-        SOURCEDIR=$WORKSPACE
-        TARGETDIR=/var/www/artifacts
-    }
     stages {
         stage('Create Environment'){
+        sh 'ls $WORKSPACE'
+        SOURCEDIR=$WORKSPACE
+        TARGETDIR=/var/www/artifacts
             steps{
                 script{
                     sh 'echo ' + ${SOURCEDIR}
