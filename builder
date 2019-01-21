@@ -9,7 +9,7 @@ pipeline {
             steps{
                 deleteDir()
                 script{
-                    bash '''
+                    sh '''
                     #!/bin/bash
                         cd ${WORKSPACE}
                         echo  "+++++++++++++++++++++++++"
@@ -36,7 +36,7 @@ pipeline {
         stage('Configure environment'){
             steps{
                 script{
-                    bash '''
+                    sh '''
                     #!/bin/bash
                         source oe-core/oe-init-build-env
                         cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
@@ -49,7 +49,7 @@ pipeline {
         stage('Delivery build'){
             steps{
                 script{
-                    bash '''
+                    sh '''
                     #!/bin/bash
                         cd ${WORKSPACE}
                         tar -czvf ${DELIVERY_DIR}/${JOB_BASE_NAME}-build-${BUILD_NUMBER}.tar.gz -C ${WORKSPACE} --exclude '${WORKSPACE}/.git'
