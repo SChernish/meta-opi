@@ -9,7 +9,8 @@ pipeline {
             steps{
                 deleteDir()
                 script{
-                    sh '''
+                    bash '''
+                        #!/bin/bash
                         cd ${WORKSPACE}
                         echo  "+++++++++++++++++++++++++"
                         echo  "+    Clone devel-opi    +"
@@ -27,7 +28,7 @@ pipeline {
                         echo  "+ Clone meta-openembedded +"
                         echo  "+++++++++++++++++++++++++++"                       
                         git clone git://git.openembedded.org/meta-openembedded
-                    sh '''
+                    '''
                 }
             }
         }
@@ -35,12 +36,13 @@ pipeline {
         stage('Configure environment'){
             steps{
                 script{
-                    sh '''
+                    bash '''
+                        #!/bin/bash
                         ls
                         source oe-core/oe-init-build-env
                         cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
                         cat ../meta-opi/conf.frag >> ./conf/local.conf
-                    sh '''
+                    '''
                 }
             }
         }
@@ -48,10 +50,11 @@ pipeline {
         stage('Delivery build'){
             steps{
                 script{
-                    sh '''
+                    bash '''
+                        #!/bin/bash
                         cd ${WORKSPACE}
                         tar -czvf ${DELIVERY_DIR}/${JOB_BASE_NAME}-build-${BUILD_NUMBER}.tar.gz -C ${WORKSPACE} --exclude '${WORKSPACE}/.git'
-                    sh '''
+                    '''
                 }
                 deleteDir()
             }
