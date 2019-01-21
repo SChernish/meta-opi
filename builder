@@ -36,7 +36,7 @@ pipeline {
             steps{
                 script{
                     sh '''
-                        ll
+                        ls
                         source oe-core/oe-init-build-env
                         cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
                         cat ../meta-opi/conf.frag >> ./conf/local.conf
