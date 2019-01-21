@@ -14,16 +14,16 @@ pipeline {
                         cd ${WORKSPACE}
                         echo  "+++++++ Clone devel-opi +++++++"
                         git clone git://github.com/devel-opi/meta-opi.git
-                        echo "\n\n"
+                        echo "\n"
                         echo  "+++++++ Clone oe-core +++++++"
                         git clone git://git.openembedded.org/openembedded-core oe-core
-                        echo "\n\n"
+                        echo "\n"
                         echo  "++ Clone oe-core/bitbake ++"
                         git clone git://git.openembedded.org/bitbake oe-core/bitbake
-                        echo "\n\n"
+                        echo "\n"
                         echo  "++ Clone meta-openembedded ++"               
                         git clone git://git.openembedded.org/meta-openembedded
-                        echo "\n\n"
+                        echo "\n"
                     '''
                 }
             }
