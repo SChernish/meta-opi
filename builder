@@ -6,6 +6,8 @@ pipeline {
     stages {
         stage('Create Environment'){
             steps{
+                echo env.WORKSPACE
+                echo env.TARGETDIR
                 script{
                     sh 'printenv'
                     sh 'echo ' + ${env.WORKSPACE}
