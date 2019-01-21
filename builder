@@ -4,8 +4,9 @@ pipeline {
         stage('Create Environment'){
             steps{
                 script{
+                    def source = "/var/lib/jenkins/workspace/META-OPI"
                     def target = "/var/www/artifacts"
-                    sh 'CP ' + $WOKSPACE + ' ' + target
+                    sh 'CP ' + source + ' ' + target
                     sh 'ls ' + target
                 }
             }
