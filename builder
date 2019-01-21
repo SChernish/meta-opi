@@ -10,6 +10,7 @@ pipeline {
                 deleteDir()
                 script{
                     bash '''
+                    #!/bin/bash
                         cd ${WORKSPACE}
                         echo  "+++++++++++++++++++++++++"
                         echo  "+    Clone devel-opi    +"
@@ -36,6 +37,7 @@ pipeline {
             steps{
                 script{
                     bash '''
+                    #!/bin/bash
                         source oe-core/oe-init-build-env
                         cat ../meta-opi/bblayers.frag >> ./conf/bblayers.conf
                         cat ../meta-opi/conf.frag >> ./conf/local.conf
@@ -48,6 +50,7 @@ pipeline {
             steps{
                 script{
                     bash '''
+                    #!/bin/bash
                         cd ${WORKSPACE}
                         tar -czvf ${DELIVERY_DIR}/${JOB_BASE_NAME}-build-${BUILD_NUMBER}.tar.gz -C ${WORKSPACE} --exclude '${WORKSPACE}/.git'
                     '''
@@ -58,3 +61,4 @@ pipeline {
 
     }
 }
+
