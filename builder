@@ -5,7 +5,7 @@ pipeline {
             steps{
                 script{
                     def target = "/var/www/artifacts"
-                    sh 'CP ' + ${WOKSPACE} + ' ' + target
+                    sh 'CP ' + $WOKSPACE + ' ' + target
                     sh 'ls ' + target
                 }
             }
