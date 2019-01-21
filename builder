@@ -10,9 +10,9 @@ pipeline {
                 echo env.TARGETDIR
                 script{
                     sh 'printenv'
-                    sh 'echo ' + ${env.WORKSPACE}
-                    sh 'cp -r ' + ${env.WORKSPACE} + ' ' + ${env.TARGETDIR}
-                    sh 'ls ' + ${env.TARGETDIR}
+                    sh 'echo ' + WORKSPACE
+                    sh 'cp -r ' + WORKSPACE + ' ' + TARGETDIR
+                    sh 'ls ' + TARGETDIR
                 }
             }
         }
