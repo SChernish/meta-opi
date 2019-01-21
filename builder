@@ -3,7 +3,7 @@ pipeline {
     environment {
         source ./.env
         SOURCEDIR = $WORKSPACE
-        TARGETDIR = '/var/www/artifacts'
+        TARGETDIR = "/var/www/artifacts"
     }
     stages {
         stage('Create Environment'){
